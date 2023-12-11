@@ -1,0 +1,22 @@
+{
+    "401": {
+        "title": "401 Unauthorized",
+        "header": "Unauthorized",
+        "description": "This server could not verify that you are authorized to access the document requested.  Either you supplied the wrong credentials (e.g., bad password), or your browser doesn't understand how to supply the credentials required."
+    },
+    "403": {
+        "title": "403 Forbidden",
+        "header": "Forbidden",
+        "description": "You don't have permission to access this resource."
+    },
+    "404": {
+        "title": "404 Not Found",
+        "header": "Not Found",
+        "description": "The requested URL was not found on this server."
+    },
+    "500": {
+        "title": "500 Internal Server Error",
+        "header": "Internal Server Error",
+        "description": "The server encountered an internal error or misconfiguration and was unable to complete your request.</p><p>Please contact the server administrator at webmaster@localhost to inform them of the time this error occurred, and the actions you performed just before this error.</p><p>More information about this error may be available in the server error log."
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "401": {
+        "title": "401 Unauthorized",
+        "header": "Unauthorized",
+        "description": "The server could not verify that you are authorized to access the URL requested. You either supplied the wrong credentials (e.g. a bad password), or your browser doesn't understand how to supply the credentials required."
+    },
+    "403": {
+        "title": "403 Forbidden",
+        "header": "403 Forbidden",
+        "description": ""
+    },
+    "404": {
+        "title": "Not Found",
+        "header": "Not Found",
+        "description": "The requested resource was not found on this server."
+    },
+    "500": {
+        "title": "Server Error (500)",
+        "header": "Server Error (500)",
+        "description": ""
+    }
+}

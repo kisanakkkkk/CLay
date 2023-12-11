@@ -1,0 +1,30 @@
+{
+  "lhost": "0.0.0.0",
+  "lport": 5000,
+  "target": "http://127.0.0.1:8000/",
+  "decoy_technology": {
+    "server": "Apache HTTP Server",
+    "framework": "Microsoft ASP.NET"
+  },
+  "user_preference": {
+    "filter_request_by_user_agent": true,
+    "filter_comment": true,
+    "filter_response_header": true,
+    "error_template_changing": true,
+    "add_decoy_header": true,
+    "add_decoy_cookie": true,
+    "add_decoy_comment": {
+      "status": true,
+      "decoy_comments": [
+        {
+          "comment": "Dummy comment goes here",
+          "target_paths": [".*/login/", ".*/test/"]
+        },
+        {
+          "comment": "Dummy comment 2 goes here",
+          "target_paths": [".*/signup/"]
+        }
+      ]
+    }
+  }
+}

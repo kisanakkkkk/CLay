@@ -1,0 +1,22 @@
+{
+    "401": {
+        "title": "401 Unauthorized",
+        "header": "Unauthorized",
+        "description": "The server could not verify that you are authorized to access the URL requested. You either supplied the wrong credentials (e.g. a bad password), or your browser doesn't understand how to supply the credentials required."
+    },
+    "403": {
+        "title": "403 Forbidden",
+        "header": "Forbidden",
+        "description": "You don't have the permission to access the requested resource. It is either read-protected or not readable by the server."
+    },
+    "404": {
+        "title": "404 Not Found",
+        "header": "Not Found",
+        "description": "The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again."
+    },
+    "500": {
+        "title": "500 Internal Server Error",
+        "header": "Internal Server Error",
+        "description": "The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an Error: the application."
+    }
+}

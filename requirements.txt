@@ -1,0 +1,4 @@
+Jinja2==3.1.2
+mitmproxy==10.0.0
+mitmproxy_rs==0.2.2
+regex==2023.10.3

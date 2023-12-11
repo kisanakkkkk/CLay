@@ -1,0 +1,22 @@
+{
+    "401": {
+        "title": "401 - Unauthorized: Access is denied due to invalid credentials.",
+        "header": "401 - Unauthorized: Access is denied due to invalid credentials.",
+        "description": "You do not have permission to view this directory or page using the credentials that you supplied."
+    },
+    "403": {
+        "title": "403 - Forbidden: Access is denied.",
+        "header": "403 - Forbidden: Access is denied.",
+        "description": "You do not have permission to view this directory or page using the credentials that you supplied."
+    },
+    "404": {
+        "title": "404 - File or directory not found.",
+        "header": "404 - File or directory not found.",
+        "description": "The resource you are looking for might have been removed, had its name changed, or is temporarily unavailable."
+    },
+    "500": {
+        "title": "500 - Internal server error.",
+        "header": "500 - Internal server error.",
+        "description": "There is a problem with the resource you are looking for, and it cannot be displayed."
+    }
+}

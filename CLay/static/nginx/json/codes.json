@@ -1,0 +1,22 @@
+{
+    "401": {
+        "title": "401 Authorization Required",
+        "header": "401 Authorization Required",
+        "description": ""
+    },
+    "403": {
+        "title": "403 Forbidden",
+        "header": "403 Forbidden",
+        "description": ""
+    },
+    "404": {
+        "title": "404 Not Found",
+        "header": "404 Not Found",
+        "description": ""
+    },
+    "500": {
+        "title": "500 Internal Server Error",
+        "header": "500 Internal Server Error",
+        "description": ""
+    }
+}

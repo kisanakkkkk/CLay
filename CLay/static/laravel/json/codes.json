@@ -1,0 +1,22 @@
+{
+    "401": {
+        "title": "Unauthorized",
+        "header": "Unauthorized",
+        "description": "401"
+    },
+    "403": {
+        "title": "Forbidden",
+        "header": "Forbidden",
+        "description": "403"
+    },
+    "404": {
+        "title": "Not Found",
+        "header": "Not Found",
+        "description": "404"
+    },
+    "500": {
+        "title": "Server Error",
+        "header": "Server Error",
+        "description": "500"
+    }
+}

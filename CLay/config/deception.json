@@ -1,0 +1,86 @@
+{  
+  "Laravel": {
+    "cookies": {
+      "laravel_session": "eyJpdiI6IlwvM2RtY2VEM2lsakZkdDFjZ2FhVElRPT0iLCJ2YWx1ZSI6IlwvZmNrTmJ3amh5UytJeHhFY1Bqamc9PSIsIm1hYyI6ImFiYWQ1ZjJhZjY2M2UwNzQ3ODc4MTUwYmE3ZmQ0MjI0ZTMyNGZkYTJjYmNiNmM3MjNjYTU2ZjA2YTFlZmM0OGYifQ=="
+    },
+    "js": {
+      "Laravel": ""
+    },
+    "path": {
+      "html": "static/laravel/html/template.html",
+      "json": "static/laravel/json/codes.json"
+    }
+  },
+  
+  "PHP": {
+    "cookies": {
+      "PHPSESSID": "2b5b7e8a4c13e8c02cd5a47c3fd60a7f"
+    },
+    "headers": {
+      "X-Powered-By": "PHP/7.2.12"
+    },
+    "url": "\\.php(?:$|\\?)"
+  },
+
+  "Flask": {
+    "headers": {
+      "Server": "Werkzeug/2.0.3 Python/3.10.2"
+    },
+    "path": {
+      "html": "static/flask/html/template.html",
+      "json": "static/flask/json/codes.json"
+    }
+  },
+
+  "Django": {
+    "cookies": {
+      "django_language": "en-us"
+    },
+    "html": "(?:powered by <a[^>]+>Django ?([\\d.]+)?<\\/a>|<input[^>]*name=[\"']csrfmiddlewaretoken[\"'][^>]*>)\\;version:\\1",
+    "js": {
+      "__admin_media_prefix__": "",
+      "django": ""
+    },
+    "path": {
+      "html": "static/django/html/template.html",
+      "json": "static/django/json/codes.json"
+    }
+  },
+
+  "Microsoft ASP.NET": {
+    "cookies": {
+      "ASP.NET_SessionId": "9kqfikf2oxdvt3v0u0gsuwfz",
+      "ASPSESSION": "S2ONBXYZJKL12345"
+    },
+    "headers": {
+      "Set-Cookie": ".AspNetCore=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMDEiLCJuYW1lIjoiQWRtaW4wMDEiLCJpYXQiOjE1MTYyMzkwMjJ9.ZaWqxTYG5zPJX1GcJ3Lnbu2rPPrUf_iM2J9UcUsJ3ts",
+      "X-Powered-By": "ASP.NET",
+      "X-AspNet-Version": "4.0.30319"
+    },
+    "html": "<input[^>]+name=\"__VIEWSTATE",
+    "url": "\\.aspx?(?:$|\\?)",
+    "path": {
+      "html": "static/asp_net/html/template.html",
+      "json": "static/asp_net/json/codes.json"
+    }
+  },
+  "Apache HTTP Server": {
+    "headers": {
+      "Server": "Apache/2.4.18"
+    },
+    "path": {
+      "html": "static/apache/html/template.html",
+      "json": "static/apache/json/codes.json"
+    }
+  },
+  "Nginx": {
+    "headers": {
+      "Server": "nginx/1.18.0",
+      "X-Fastcgi-Cache": "MISS"
+    },
+    "path": {
+      "html": "static/nginx/html/template.html",
+      "json": "static/nginx/json/codes.json"
+    }
+  }
+}

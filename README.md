@@ -1,7 +1,8 @@
 # CLay
 [![Python 3.11](https://img.shields.io/badge/Python-3.11-blue.svg)](https://www.python.org/downloads/)
 
-![claylogo](https://github.com/kisanakkkkk/CLay/assets/70153248/bfdbe944-4b00-4128-b656-923428f8de29)
+![claylogo](https://github.com/kisanakkkkk/CLay/assets/70153248/4641307d-e2a7-4dc0-8910-7afcb33fa357)
+
 
 *Concealment Layer - Reverse Proxy for Concealing and Deceiving Website Informations*
 

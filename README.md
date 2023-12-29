@@ -1,11 +1,9 @@
-# CLay
 [![Python 3.11](https://img.shields.io/badge/Python-3.11-blue.svg)](https://www.python.org/downloads/)
 
-![claylogo](https://github.com/kisanakkkkk/CLay/assets/70153248/bfdbe944-4b00-4128-b656-923428f8de29)
+![claylogo](https://github.com/kisanakkkkk/CLay/assets/70153248/bec44468-5110-44b9-a89d-240d301e6c2d)
 
 
-
-<h4 align="center">Concealment Layer - Reverse Proxy for Concealing and Deceiving Website Informations<a href="https://github.com/chrisandoryan/Nethive-Project" target="_blank"></a></h4>
+<h4 align="center">Concealment Layer - Reverse Proxy for Concealing and Deceiving Website Informations<a href="https://github.com/kisanakkkkk/CLay" target="_blank"></a></h4>
 
 <p align="center">
   <a href="#features">Features</a> •
@@ -18,8 +16,7 @@ CLay offers a unique and powerful feature that goes beyond traditional security 
 
 | Original                                             | CLay-ed (ASP .NET + Apache)                                              | CLay-ed (PHP + Nginx)                                                   |
 | ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
-| ![Image 1](https://github.com/kisanakkkkk/CLay-dev/assets/70153248/cfef3fd1-e3e6-4401-aebf-9869ba400150)   | ![Image 2](https://github.com/kisanakkkkk/CLay-dev/assets/70153248/c90512eb-4cbd-44a7-8d37-1ba9443de85d)   | ![afterclay3wap](https://github.com/kisanakkkkk/CLay-dev/assets/70153248/f359af69-6335-49e0-8a1a-837c93eea036)   |
-
+| ![Image 1](https://github.com/kisanakkkkk/CLay/assets/70153248/1516de88-8251-489f-89b9-c054b98e5ac5)   | ![Image 2](https://github.com/kisanakkkkk/CLay/assets/70153248/2f3965c8-078b-4066-b58f-97eee96b3efa)   | ![afterclay3wap](https://github.com/kisanakkkkk/CLay/assets/70153248/17456593-f283-4064-91ba-736f35cd9021)   |
 
 
 ## Features

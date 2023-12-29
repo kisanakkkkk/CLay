@@ -87,9 +87,9 @@ class ResponseHandler:
                 if (self.flow.user_preference["add_decoy_comment"]["status"] == True):
                     self.addDecoyComment();
                     # decoy_comment = self.flow.user_preference["add_decoy_comment"]["decoy_comment"]
-                    # target_paths = self.flow.user_preference["add_decoy_comment"]["target_paths"]
-                    # assert len(decoy_comment) == len(target_paths)
-                    # addComment(self.flow, decoy_comment, target_paths)
+                    # url_target_paths = self.flow.user_preference["add_decoy_comment"]["url_target_paths"]
+                    # assert len(decoy_comment) == len(url_target_paths)
+                    # addComment(self.flow, decoy_comment, url_target_paths)
 
             # replace error page
             if (self.flow.user_preference["error_template_changing"] == True):
@@ -101,8 +101,8 @@ class ResponseHandler:
         try:
             for c in self.flow.user_preference["add_decoy_comment"]["decoy_comments"]:
                 decoy_comment = c["comment"]
-                target_paths = c["target_paths"]
-                addComment(self.flow, decoy_comment, target_paths)
+                url_target_paths = c["url_target_paths"]
+                addComment(self.flow, decoy_comment, url_target_paths)
         except Exception as e:
             print('Error: addDecoyComment', e)
 

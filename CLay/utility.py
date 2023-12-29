@@ -36,10 +36,10 @@ def contentCheck(header):
         return None
 
 
-def addComment(flow, comment, target_paths):
+def addComment(flow, comment, url_target_paths):
     request_path = flow.request.path
     try:
-        for target_path in target_paths:
+        for target_path in url_target_paths:
             location_regex = regex.compile(target_path)
             match = location_regex.match(request_path)
             if match:

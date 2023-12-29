@@ -1,9 +1,9 @@
 {
-  "lhost": "0.0.0.0",
-  "lport": 5000,
-  "target": "http://127.0.0.1:8000/",
+  "listen_host": "0.0.0.0",
+  "listen_port": 5000,
+  "url_target": "http://example.com",
   "decoy_technology": {
-    "server": "Apache HTTP Server",
+    "server": "Nginx",
     "framework": "Microsoft ASP.NET"
   },
   "user_preference": {
@@ -17,12 +17,10 @@
       "status": true,
       "decoy_comments": [
         {
-          "comment": "Dummy comment goes here",
-          "target_paths": [".*/login/", ".*/test/"]
-        },
-        {
-          "comment": "Dummy comment 2 goes here",
-          "target_paths": [".*/signup/"]
+          "comment": "dev",
+          "url_target_paths": [
+            ".*/"
+          ]
         }
       ]
     }

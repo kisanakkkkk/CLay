@@ -4,4 +4,6 @@ from .responsehandler import *
 from .config import *
 from .lists import *
 from .utility import *
+from .generate import *
+
 

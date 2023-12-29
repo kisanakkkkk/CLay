@@ -12,6 +12,7 @@ from mitmproxy.tools.dump import DumpMaster
 from CLay.config import *
 from CLay.requesthandler import RequestHandler
 from CLay.responsehandler import ResponseHandler
+from CLay.generate import *
 
 class Proxy:
     def __init__(self, master):
@@ -70,18 +71,21 @@ async def startProxy(lhost, lport, target):
 def main():
     try:
         parser = argparse.ArgumentParser()
-        parser.add_argument('-c', '--config', dest='config', type=str, required=True)
+        parser.add_argument('-c', '--config', dest='config', type=str, help='run proxy based on JSON configuration file')
+        parser.add_argument('-g', '--generate', dest='generate', action='store_true', help='generate JSON file')
         args = parser.parse_args()
-        if args.config != '':
+        if args.config and args.config != '':
             try:
                 configure.set_config(args.config)
-                lhost = configure.read_config().get("lhost")
-                lport = configure.read_config().get("lport")
-                target = configure.read_config().get("target")
+                lhost = configure.read_config().get("listen_host")
+                lport = configure.read_config().get("listen_port")
+                target = configure.read_config().get("url_target")
                 asyncio.run(startProxy(lhost=lhost, lport=lport, target=target))
             except Exception as e:
                 print('Error: Unable to load or parse config file', e)
                 exit()
+        elif args.generate:
+            generateConfig()
     except KeyboardInterrupt:
         print(f'[-] KeyboardInterrupt triggered')
     except Exception as e:

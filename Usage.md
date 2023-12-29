@@ -40,7 +40,7 @@ options:
   }
 }
 ```
-
+---
 ### Feature - Request Filtering by User-Agent
 | Before                                              | After                                              |
 | ---------------------------------------------------- | ---------------------------------------------------- |
@@ -52,7 +52,7 @@ Determine whether the request originates from a dangerous (tools-based) user age
 "filter_request_by_user_agent": true
 ```
 
-
+---
 ### Feature - HTML Comment Filtering
 | Before                                              | After                                              |
 | ---------------------------------------------------- | ---------------------------------------------------- |
@@ -64,6 +64,7 @@ Automatically remove all HTML comments, preventing unnecessary information leaka
 "filter_comment": true,
 ```
 
+---
 ### Feature - Informative Response Header Filtering
 | Before                                              | After                                              |
 | ---------------------------------------------------- | ---------------------------------------------------- |
@@ -75,6 +76,7 @@ Determine whether the application’s response contains informative headers, suc
 "filter_response_header": true
 ```
 
+---
 ### Feature - Error Template Changing
 | Before                                              | After                                              |
 | ---------------------------------------------------- | ---------------------------------------------------- |
@@ -86,6 +88,7 @@ CLay will replace the application’s default error pages with the other framewo
 "error_template_changing": true
 ```
 
+---
 ### Feature - Adding Decoy Informative Response Headers
 | Before                                              | After                                              |
 | ---------------------------------------------------- | ---------------------------------------------------- |
@@ -97,6 +100,7 @@ CLay allows users to add decoy informative headers, such as the fake server bann
 "add_decoy_header": true
 ```
 
+---
 ### Feature - Adding Decoy Cookies
 | Before                                              | After                                              |
 | ---------------------------------------------------- | ---------------------------------------------------- |
@@ -108,6 +112,7 @@ CLay allows users to add decoy cookies to make it difficult for attackers to det
 "add_decoy_cookie": true
 ```
 
+---
 ### Feature - Adding Dummy HTML Comments
 | Before                                              | After                                              |
 | ---------------------------------------------------- | ---------------------------------------------------- |
@@ -124,7 +129,7 @@ CLay allows users to add dummy HTML comments in multiple paths to mislead attack
             "url_target_paths": [".*/login/", ".*/test/"]
         },
         {
-            "comment": "Dummy comment 2 goes here",
+            "comment": "here's the decoy comment",
             "url_target_paths": [".*/signup/"]
         }
     ]

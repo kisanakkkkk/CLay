@@ -20,7 +20,7 @@ echo "" >> CLay.service
 echo "[Service]" >> CLay.service
 echo "ExecStart=CLay -c \"$full_path\"" >> CLay.service
 echo "Restart=always" >> CLay.service
-echo "User=$(whoami)" >> CLay.service
+echo "User=$SUDO_USER" >> CLay.service
 echo "" >> CLay.service
 echo "[Install]" >> CLay.service
 echo "WantedBy=default.target" >> CLay.service

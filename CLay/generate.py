@@ -334,40 +334,5 @@ def generatejson(lhost, lport, target_url, server, framework, filter_request_by_
 		file_path += "config.json"
 		fx = open(file_path, 'w')
 		fx.write(dicti)
-		promptService(file_path)
 	except Exception as e:
 		print("an error occured", e)
-
-def promptService(file_path):
-	while True:
-		try:
-			inp = xinput("[?] Do you want to build CLay as a systemd service? (this will automatically run CLay on startup) [y/n]: ")
-			addservice = answer(inp)
-			if addservice == True:
-				createService(file_path)
-			elif addservice == False:
-				break
-			else:
-				break
-		except Exception as e:
-			print("something's wrong", e)
-
-def createService(file_path):
-	servicefile = f"""
-	[Unit]
-	Description=CLay Service
-
-	[Service]
-	User={os.getlogin()}
-
-	ExecStart=CLay -c "{file_path}"'
-	Restart=always
-	RestartSec=3
-
-	[Install]
-	WantedBy=multi-user.target
-	"""
-
-	
-
-

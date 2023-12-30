@@ -327,7 +327,12 @@ def generatejson(lhost, lport, target_url, server, framework, filter_request_by_
 	print("\n\nCreated json:")
 	print(dicti)
 
-	file_path = './config.json'
-	fx = open(file_path, 'w')
-	fx.write(dicti)
-	exit()
+	try:
+		file_path = xinput("Specify the DIRECTORY path where you want to save the output file config.json (ENTER to use current directory)")
+		if file_path == "":
+			file_path = "./"
+		file_path += "config.json"
+		fx = open(file_path, 'w')
+		fx.write(dicti)
+	except Exception as e:
+		print("an error occured", e)

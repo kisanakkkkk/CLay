@@ -68,7 +68,12 @@ CLay -c config.json
 
 4. Go to http://0.0.0.0:5000/.
 
-
+5. (Optional) Build CLay as **systemd** linux service
+```
+chmod +x initservice.sh
+sudo ./initservice.sh config.json
+sudo systemctl status CLay
+```
 ### Run With Docker
 
 Coming Soon!

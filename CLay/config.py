@@ -27,26 +27,30 @@ class Configure:
     
     def read_technology(self, technology):
         try:
-            #read config/deception.json
-            file_path = os.path.join(os.path.dirname(__file__), 'config/deception.json')
-            with open(file_path, "r") as config_file:
+            result = {}
+            #read config/deception_server.json
+            server_file_path = os.path.join(os.path.dirname(__file__), 'config/deception_server.json')
+            with open(server_file_path, "r") as config_file:
                 config_data = json.load(config_file)
+                server_technology = technology['server']
+                if server_technology in config_data:
+                    result[server_technology] = config_data[server_technology]
+                    print(f"[+] Technology {server_technology} successfully loaded.")
+                else:
+                    print(f"[!] Technology {server_technology} doesn't exist in our database.")
 
-                # One line to get key and value pair (first: key is tech category[ex. server]; second: key is tech name[ex. Laravel])
-                # values_from_config_data = {key: config_data[value] for key, value in technology.items()}
-                # values_from_config_data = {key: config_data[key] for key in technology.values() if key in config_data}
+            #read config/deception_framework.json
 
-                # get technology used for deception from config file and deception data
-                result = {}
-                for key_to_get_config_data in technology.values():
-                    if key_to_get_config_data in config_data:
-                        result[key_to_get_config_data] = config_data[key_to_get_config_data]
-                        print(f"[+] Technology {key_to_get_config_data} successfully loaded.")
-                    else:
-                        print(f"[!] Technology {key_to_get_config_data} doesn't exist in our database.")
+            framework_file_path = os.path.join(os.path.dirname(__file__), 'config/deception_framework.json')
+            with open(framework_file_path, "r") as config_file:
+                config_data = json.load(config_file)
+                framework_technology = technology['framework']
+                if framework_technology in config_data:
+                    result[framework_technology] = config_data[framework_technology]
+                    print(f"[+] Technology {framework_technology} successfully loaded.")
+                else:
+                    print(f"[!] Technology {framework_technology} doesn't exist in our database.")
 
-                # for key, value in result.items():
-                #     print(f"{key}: {value}")
             return result
         except FileNotFoundError:
             print(f"Error: config file '{file_path}' not found.")

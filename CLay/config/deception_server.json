@@ -1,0 +1,21 @@
+{  
+  "Apache HTTP Server": {
+    "headers": {
+      "Server": "Apache/2.4.18"
+    },
+    "path": {
+      "html": "static/apache/html/template.html",
+      "json": "static/apache/json/codes.json"
+    }
+  },
+  "Nginx": {
+    "headers": {
+      "Server": "nginx/1.18.0",
+      "X-Fastcgi-Cache": "MISS"
+    },
+    "path": {
+      "html": "static/nginx/html/template.html",
+      "json": "static/nginx/json/codes.json"
+    }
+  }
+}

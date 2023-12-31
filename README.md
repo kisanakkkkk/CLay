@@ -76,7 +76,10 @@ sudo systemctl status CLay
 ```
 ### Run With Docker
 
-Coming Soon!
+```
+sudo docker run -it -v $(pwd)/config.json:/CLay/config.json -p 5000:5000 kisanakkkkk/clay:latest -c config.json
+```
+Using bind mount (-v) to add configuration file from local system into the container.
 
 
 ## Usage

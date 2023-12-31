@@ -3,7 +3,7 @@
   "listen_port": 5000,
   "url_target": "http://example.com",
   "decoy_technology": {
-    "server": "Nginx",
+    "server": "Apache HTTP Server",
     "framework": "Microsoft ASP.NET"
   },
   "user_preference": {

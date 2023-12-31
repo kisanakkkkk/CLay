@@ -95,7 +95,7 @@ class ResponseHandler:
             if (self.flow.user_preference["error_template_changing"] == True):
                 self.templateChanging()
         except Exception as e:
-            print('Error: deceptResponsex', e)
+            print('Error: deceptResponse', e)
 
     def addDecoyComment(self):
         try:
@@ -136,7 +136,6 @@ class ResponseHandler:
                 cookie_value = createCookieString(key, value=value)
                 cookie_header = "Set-Cookie"
                 self.addHeader(cookie_header, cookie_value)
-                print("fake cookie added")
 
         except Exception as e:
             print('Error: addCookie', e)

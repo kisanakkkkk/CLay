@@ -4,6 +4,7 @@ import regex
 import random
 import datetime
 import os
+import html
 from mitmproxy import http
 from jinja2 import Template
 
@@ -38,6 +39,7 @@ def contentCheck(header):
 
 def addComment(flow, comment, url_target_paths):
     request_path = flow.request.path
+    comment = html.escape(comment)
     try:
         for target_path in url_target_paths:
             location_regex = regex.compile(target_path)

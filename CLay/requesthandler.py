@@ -1,8 +1,10 @@
 # from lists import *
 # from utility import *
+# from config import *
 
 from CLay.lists import *
 from CLay.utility import *
+from CLay.config import *
 
 
 
@@ -29,8 +31,10 @@ class RequestHandler:
 
     def detectRequest(self):
         try:
-            if (self.flow.user_preference["filter_request_by_user_agent"] == True):
+            if (configure.user_preference["filter_request_by_user_agent"] == True):
                 self.filterRequestByUserAgent()
+            elif (configure.user_preference["filter_request_by_user_agent"] is not True or False):
+                print('Error value of filter_request_by_user_agent') 
         except Exception as e:
             print('Error: detectRequest', e)
 

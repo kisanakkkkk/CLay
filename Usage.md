@@ -51,6 +51,7 @@ Determine whether the request originates from a dangerous (tools-based) user age
 ```
 "filter_request_by_user_agent": true
 ```
+See [this](https://raw.githubusercontent.com/mitchellkrogza/apache-ultimate-bad-bot-blocker/master/Apache_2.2/custom.d/globalblacklist.conf) as references.
 
 ---
 ### Feature - HTML Comment Filtering
@@ -118,8 +119,7 @@ CLay allows users to add decoy cookies to make it difficult for attackers to det
 | ---------------------------------------------------- | ---------------------------------------------------- |
 | ![Image 1](https://github.com/kisanakkkkk/CLay/assets/70153248/b2ef67ef-edce-4ccb-b4b1-819b3880e236)   | ![Image 2](https://github.com/kisanakkkkk/CLay/assets/70153248/fad41b5e-5a0b-467b-b106-0e3a4be6bc27)   |
 
-CLay allows users to add dummy HTML comments in multiple paths to mislead attackers engaged in reconnaissance, throwing them into a wild goose chase.
-
+CLay allows users to add dummy HTML comments in multiple paths to mislead attackers engaged in reconnaissance, throwing them into a wild goose chase. For example, adding fake credentials and observing who attempts to log in.
 ```
 "add_decoy_comment": {
     "status": true,
@@ -135,3 +135,6 @@ CLay allows users to add dummy HTML comments in multiple paths to mislead attack
     ]
 }
 ```
+
+## What Changes From My Website?
+CLay modifies response headers to check and remove server banners, removing comment tags from response body, and replace entire response body for response with error status code (400, 401, 403, 404). CLay injects decoy cookies and misleadingly sends an "Not-Found" error page for each request with specifically marked dangerous user-agents.

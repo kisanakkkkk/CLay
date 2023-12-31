@@ -2,8 +2,15 @@ import re
 import json
 import os
 
-list_server = ["Nginx", "Apache HTTP Server"]
-list_framework = ["Laravel","PHP","Flask","Django","Microsoft ASP.NET"]
+read_server = os.path.join(os.path.dirname(__file__), 'config/deception_server.json')
+read_framework = os.path.join(os.path.dirname(__file__), 'config/deception_framework.json')
+
+with open(read_server, "r") as server_file:
+	server_file = json.loads(server_file.read())
+	list_server = [i for i in server_file.keys()]
+with open(read_framework, "r") as framework_file:
+	framework_file = json.loads(framework_file.read())
+	list_framework = [i for i in framework_file.keys()]
 
 def answer(answer):
 	try:
@@ -115,16 +122,12 @@ def promptTarget():
 def promptDecoyServer():
 	while True:
 		try:
-			print("[?] What fake SERVER technology you want to use (enter to None): ")
+			print("[?] What fake SERVER technology you want to use: ")
 			for i, j in enumerate(list_server):
 				print(f"{i+1}. {j}")
 			no_server = xinput(">> ")
-			if no_server == "":
-				server = None
-				break
-			else:
-				server = list_server[int(no_server)-1]
-				break
+			server = list_server[int(no_server)-1]
+			break
 		except Exception as e:
 			print("option is not valid")
 	return server
@@ -132,16 +135,12 @@ def promptDecoyServer():
 def promptDecoyFramework():
 	while True:
 		try:
-			print("[?] What fake FRAMEWORK technology you want to use (enter to None): ")
+			print("[?] What fake FRAMEWORK technology you want to use: ")
 			for i, j in enumerate(list_framework):
 				print(f"{i+1}. {j}")
 			no_framework = xinput(">> ")
-			if no_framework == "":
-				framework = None
-				break
-			else:
-				framework = list_framework[int(no_framework)-1]
-				break
+			framework = list_framework[int(no_framework)-1]
+			break
 		except Exception as e:
 			print("option is not valid")
 	return framework
@@ -269,7 +268,7 @@ def genQuick():
 	print("- Decoy Server Technology: Nginx")
 	print("- Decoy Framework Technology: Microsoft ASP.NET")
 	print("- All features enabled")
-	print("Please enter target url (example: http://example.com)")
+	print("\nPlease enter target url (example: http://example.com)")
 	target_url = promptTarget()
 	lhost = "0.0.0.0"
 	lport = 5000
@@ -298,7 +297,6 @@ def genCustom():
 	add_decoy_header = promptAddHeader()
 	add_decoy_cookie = promptAddCookie()
 	add_decoy_comment, decoycom = promptAddComment()
-	print(decoycom)
 	generatejson(lhost, lport, target_url, server, framework, filter_request_by_user_agent, filter_comment, filter_response_header, error_template_changing, add_decoy_header, add_decoy_cookie, add_decoy_comment, decoycom)
 
 def generatejson(lhost, lport, target_url, server, framework, filter_request_by_user_agent, filter_comment, filter_response_header, error_template_changing, add_decoy_header, add_decoy_cookie, add_decoy_comment, decoycom):
@@ -328,11 +326,8 @@ def generatejson(lhost, lport, target_url, server, framework, filter_request_by_
 	print(dicti)
 
 	try:
-		file_path = xinput("Specify the DIRECTORY path where you want to save the output file config.json (ENTER to use current directory)")
-		if file_path == "":
-			file_path = "./"
-		file_path += "config.json"
-		fx = open(file_path, 'w')
+		fx = open("./config.json", 'w')
 		fx.write(dicti)
+		exit()
 	except Exception as e:
 		print("an error occured", e)

@@ -4,12 +4,14 @@ import regex
 import random
 import datetime
 import os
+import html
 from mitmproxy import http
 from jinja2 import Template
 
 # from lists import *
 
 from CLay.lists import *
+from CLay.config import *
 
 
 
@@ -38,6 +40,7 @@ def contentCheck(header):
 
 def addComment(flow, comment, url_target_paths):
     request_path = flow.request.path
+    comment = html.escape(comment)
     try:
         for target_path in url_target_paths:
             location_regex = regex.compile(target_path)
@@ -124,7 +127,7 @@ def statusCodeTampering(flow, response_code=None):
 
         flow.response = http.Response.make(
             response_code,
-            responseTemplating(flow, response_code),
+            responseTemplating(response_code),
             {
                 "Content-Type": "text/html",
             }
@@ -133,13 +136,13 @@ def statusCodeTampering(flow, response_code=None):
         print('Error: statusCodeTampering', e)
 
 
-def responseTemplating(flow, status):
+def responseTemplating(status):
     try:
         # read html and json template
-        deception_html_path = flow.deception["path"]["html"]
+        deception_html_path = configure.deception_data["path"]["html"]
         if isinstance(deception_html_path, list):
             deception_html_path = deception_html_path[-1]
-        deception_json_path = flow.deception["path"]["json"]
+        deception_json_path = configure.deception_data["path"]["json"]
         if isinstance(deception_json_path, list):
             deception_json_path = deception_json_path[-1]
 

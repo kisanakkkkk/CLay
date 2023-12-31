@@ -68,7 +68,7 @@ CLay -c config.json
 
 4. Go to http://0.0.0.0:5000/.
 
-5. (Optional) Build CLay as **systemd** linux service
+5. (Optional) Build CLay as **systemd** linux service. This allows CLay to run in the background and be restarted automatically if it exits unexpectedly.
 ```
 chmod +x initservice.sh
 sudo ./initservice.sh config.json

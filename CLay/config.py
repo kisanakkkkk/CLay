@@ -29,8 +29,8 @@ class Configure:
         try:
             result = {}
             #read config/deception_server.json
-            server_file_path = os.path.join(os.path.dirname(__file__), 'config/deception_server.json')
-            with open(server_file_path, "r") as config_file:
+            file_path = os.path.join(os.path.dirname(__file__), 'config/deception_server.json')
+            with open(file_path, "r") as config_file:
                 config_data = json.load(config_file)
                 server_technology = technology['server']
                 if server_technology in config_data:
@@ -41,8 +41,8 @@ class Configure:
 
             #read config/deception_framework.json
 
-            framework_file_path = os.path.join(os.path.dirname(__file__), 'config/deception_framework.json')
-            with open(framework_file_path, "r") as config_file:
+            file_path = os.path.join(os.path.dirname(__file__), 'config/deception_framework.json')
+            with open(file_path, "r") as config_file:
                 config_data = json.load(config_file)
                 framework_technology = technology['framework']
                 if framework_technology in config_data:

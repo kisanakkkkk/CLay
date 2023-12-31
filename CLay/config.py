@@ -65,16 +65,14 @@ class Configure:
         try:
             config = self.read_config()
             # get detail deception will be used
-            deception_technology_details = self.get_deception_techniques(config)
-            return deception_technology_details
+            self.deception_data = self.get_deception_techniques(config)
         except Exception as e:
             print('Error: get_deception_data', e)
 
     def get_user_preference(self):
         try:
             config = self.read_config()
-            user_preference = config.get("user_preference")
-            return user_preference
+            self.user_preference = config.get("user_preference")
         except Exception as e:
             print('Error: get_user_preference', e)
 

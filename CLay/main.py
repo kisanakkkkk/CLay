@@ -1,7 +1,9 @@
 import asyncio
 import argparse
 import socket
+import logging
 from urllib import request
+
 # import sys
 # import importlib
 from mitmproxy import http, options
@@ -16,12 +18,13 @@ from CLay.requesthandler import RequestHandler
 from CLay.responsehandler import ResponseHandler
 from CLay.generate import *
 
+logging.basicConfig(level=logging.INFO, format='%(levelname)s - %(message)s')
 class Proxy:
 	def __init__(self, master):
 		try:
 			self.master = master
-			configure.deception_data = configure.get_deception_data()
-			configure.user_preference = configure.get_user_preference()
+			configure.get_deception_data()
+			configure.get_user_preference()
 		except Exception as e:
 			print('Error: init main', e)
 
@@ -36,6 +39,7 @@ class Proxy:
 	def response(self, flow: http.HTTPFlow) -> None:
 		try:
 			# importlib.reload(sys.modules['responsehandler'])
+			logging.info(f"{flow.request.method} {flow.request.host}{flow.request.path} - {flow.response.status_code}")
 			ResponseHandler(flow)
 		except Exception as e:
 			print('Error: response', e)

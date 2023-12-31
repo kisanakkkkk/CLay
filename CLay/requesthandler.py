@@ -31,6 +31,8 @@ class RequestHandler:
         try:
             if (self.flow.user_preference["filter_request_by_user_agent"] == True):
                 self.filterRequestByUserAgent()
+            elif (self.flow.user_preference["filter_request_by_user_agent"] is not True or False):
+                print('Error value of filter_request_by_user_agent') 
         except Exception as e:
             print('Error: detectRequest', e)
 

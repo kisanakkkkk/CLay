@@ -115,16 +115,12 @@ def promptTarget():
 def promptDecoyServer():
 	while True:
 		try:
-			print("[?] What fake SERVER technology you want to use (enter to None): ")
+			print("[?] What fake SERVER technology you want to use: ")
 			for i, j in enumerate(list_server):
 				print(f"{i+1}. {j}")
 			no_server = xinput(">> ")
-			if no_server == "":
-				server = None
-				break
-			else:
-				server = list_server[int(no_server)-1]
-				break
+			server = list_server[int(no_server)-1]
+			break
 		except Exception as e:
 			print("option is not valid")
 	return server
@@ -132,16 +128,12 @@ def promptDecoyServer():
 def promptDecoyFramework():
 	while True:
 		try:
-			print("[?] What fake FRAMEWORK technology you want to use (enter to None): ")
+			print("[?] What fake FRAMEWORK technology you want to use: ")
 			for i, j in enumerate(list_framework):
 				print(f"{i+1}. {j}")
 			no_framework = xinput(">> ")
-			if no_framework == "":
-				framework = None
-				break
-			else:
-				framework = list_framework[int(no_framework)-1]
-				break
+			framework = list_framework[int(no_framework)-1]
+			break
 		except Exception as e:
 			print("option is not valid")
 	return framework

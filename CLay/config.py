@@ -39,10 +39,12 @@ class Configure:
                 for key_to_get_config_data in technology.values():
                     if key_to_get_config_data in config_data:
                         result[key_to_get_config_data] = config_data[key_to_get_config_data]
+                        print(f"[+] Technology {key_to_get_config_data} successfully loaded.")
+                    else:
+                        print(f"[!] Technology {key_to_get_config_data} doesn't exist in our database.")
 
                 # for key, value in result.items():
                 #     print(f"{key}: {value}")
-
             return result
         except FileNotFoundError:
             print(f"Error: config file '{file_path}' not found.")

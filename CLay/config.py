@@ -4,6 +4,8 @@ import os
 class Configure:
     def __init__(self):
         self.config_data = None
+        self.deception_data = None
+        self.user_preference = None
         
     def set_config(self, f):
         try:

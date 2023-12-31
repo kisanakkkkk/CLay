@@ -20,15 +20,13 @@ class Proxy:
 	def __init__(self, master):
 		try:
 			self.master = master
-			self.deception_data = configure.get_deception_data()
-			self.user_preference = configure.get_user_preference()
+			configure.deception_data = configure.get_deception_data()
+			configure.user_preference = configure.get_user_preference()
 		except Exception as e:
 			print('Error: init main', e)
 
 	def request(self, flow: http.HTTPFlow) -> None:
 		try:
-			flow.deception = self.deception_data
-			flow.user_preference = self.user_preference
 
 			# importlib.reload(sys.modules['requesthandler'])
 			RequestHandler(flow)

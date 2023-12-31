@@ -55,15 +55,15 @@ class ResponseHandler:
     def filterResponse(self):
         try:
             # clear html comments
-            if (self.flow.user_preference["filter_comment"] == True):
+            if (configure.user_preference["filter_comment"] == True):
                 self.filterComment()
-            elif (self.flow.user_preference["filter_comment"] is not True or False):
+            elif (configure.user_preference["filter_comment"] is not True or False):
                 print('Error value of filter_comment') 
 
             # clear informative response headers
-            if (self.flow.user_preference["filter_response_header"] == True):
+            if (configure.user_preference["filter_response_header"] == True):
                 self.filterResponseHeaders()
-            elif (self.flow.user_preference["filter_response_header"] is not True or False):
+            elif (configure.user_preference["filter_response_header"] is not True or False):
                 print('Error value of filter_response_header')
         except Exception as e:
             print('Error: filterResponse', e)
@@ -71,47 +71,47 @@ class ResponseHandler:
     def deceptResponse(self):
         try:
             # add headers
-            if (self.flow.user_preference["add_decoy_header"] == True) and ("headers" in self.flow.deception):
-                deception_headers = self.flow.deception["headers"]
+            if (configure.user_preference["add_decoy_header"] == True) and ("headers" in configure.deception_data):
+                deception_headers = configure.deception_data["headers"]
                 for key, value in deception_headers.items():
                     if isinstance(value, list):
                         value = value[-1]
                     self.addHeader(key, value)
-            elif (self.flow.user_preference["add_decoy_header"] is not True or False):
+            elif (configure.user_preference["add_decoy_header"] is not True or False):
                 print('Error value of add_decoy_header')
 
             # add cookies
-            if (self.flow.user_preference["add_decoy_cookie"] == True) and ("cookies" in self.flow.deception):
-                deception_cookies = self.flow.deception["cookies"]
+            if (configure.user_preference["add_decoy_cookie"] == True) and ("cookies" in configure.deception_data):
+                deception_cookies = configure.deception_data["cookies"]
                 for key, value in deception_cookies.items():
                     if isinstance(value, list):
                         value = value[-1]
                     self.addCookie(key, value)
-            elif (self.flow.user_preference["add_decoy_cookie"] is not True or False):
+            elif (configure.user_preference["add_decoy_cookie"] is not True or False):
                 print('Error value of add_decoy_cookie')
 
             # add comments
-            if ("add_decoy_comment" in self.flow.user_preference):
-                if (self.flow.user_preference["add_decoy_comment"]["status"] == True):
+            if ("add_decoy_comment" in configure.user_preference):
+                if (configure.user_preference["add_decoy_comment"]["status"] == True):
                     self.addDecoyComment();
-                    # decoy_comment = self.flow.user_preference["add_decoy_comment"]["decoy_comment"]
-                    # url_target_paths = self.flow.user_preference["add_decoy_comment"]["url_target_paths"]
+                    # decoy_comment = configure.user_preference["add_decoy_comment"]["decoy_comment"]
+                    # url_target_paths = configure.user_preference["add_decoy_comment"]["url_target_paths"]
                     # assert len(decoy_comment) == len(url_target_paths)
                     # addComment(self.flow, decoy_comment, url_target_paths)
-                elif (self.flow.user_preference["add_decoy_comment"]["status"] is not True or False):
+                elif (configure.user_preference["add_decoy_comment"]["status"] is not True or False):
                     print('Error value of add_decoy_comment')
 
             # replace error page
-            if (self.flow.user_preference["error_template_changing"] == True):
+            if (configure.user_preference["error_template_changing"] == True):
                 self.templateChanging()
-            elif (self.flow.user_preference["error_template_changing"] is not True or False):
+            elif (configure.user_preference["error_template_changing"] is not True or False):
                 print('Error value of error_template_changing')
         except Exception as e:
             print('Error: deceptResponse', e)
 
     def addDecoyComment(self):
         try:
-            for c in self.flow.user_preference["add_decoy_comment"]["decoy_comments"]:
+            for c in configure.user_preference["add_decoy_comment"]["decoy_comments"]:
                 decoy_comment = c["comment"]
                 url_target_paths = c["url_target_paths"]
                 addComment(self.flow, decoy_comment, url_target_paths)
@@ -191,7 +191,7 @@ class ResponseHandler:
             if response_code in HTTP_STATUS_CODES:
                 self.flow.response = http.Response.make(
                     response_code,
-                    responseTemplating(self.flow, response_code),
+                    responseTemplating(response_code),
                     {
                         "Content-Type": "text/html"
                     }

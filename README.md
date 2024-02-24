@@ -74,7 +74,7 @@ chmod +x initservice.sh
 sudo ./initservice.sh config.json
 sudo systemctl status CLay
 ```
-### Run With Docker
+### Run With Docker (you have to create the config.json first)
 
 ```
 sudo docker run -it -v $(pwd)/config.json:/CLay/config.json -p 5000:5000 kisanakkkkk/clay:latest -c config.json
@@ -93,6 +93,6 @@ To generate a configuration file, use:
 
 To start the reverse proxy, use:
 
-```CLay -c "./config.conf"```
+```CLay -c "./config.json"```
 
 To customize the configuration of each feature, please visit **[Usage](/Usage.md)**.

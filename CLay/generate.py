@@ -104,7 +104,7 @@ def promptLPort():
 				break
 		except Exception as e:
 			print("something's wrong", e)
-	return lport
+	return int(lport)
 
 def promptTarget():
 	while True:

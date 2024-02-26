@@ -303,7 +303,7 @@ def generatejson(lhost, lport, target_url, server, framework, filter_request_by_
 
 	dicti = json.dumps({
 	  "listen_host": lhost,
-	  "listen_port": lport,
+	  "listen_port": int(lport),
 	  "url_target": target_url,
 	  "decoy_technology": {
 		"server": server,

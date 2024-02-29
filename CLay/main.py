@@ -45,15 +45,24 @@ class Proxy:
 			print('Error: response', e)
 
 
-async def startProxy(lhost, lport, target):
+async def startProxy(lhost, lport, target, cert, domain):
 	try:
 		proxyMode = ['reverse:' + target]
-		opts = options.Options(
-			listen_host=lhost,
-			listen_port=lport,
-			mode=proxyMode,
-			ssl_insecure=True
-		)
+		if cert is not None:
+			tlsCert = [f"[{domain}]={cert}"]
+			opts = options.Options(
+				listen_host=lhost,
+				listen_port=lport,
+				mode=proxyMode,
+				certs=tlsCert
+			)
+		else:
+			opts = options.Options(
+				listen_host=lhost,
+				listen_port=lport,
+				mode=proxyMode,
+				ssl_insecure=True
+			)
 
 		master = DumpMaster(
 			opts,
@@ -103,10 +112,14 @@ def checkAvailability(lhost, lport, target):
 	return flag1 and flag2
 
 
+
 def main():
 	try:
 		parser = argparse.ArgumentParser()
 		parser.add_argument('-c', '--config', dest='config', type=str, help='run proxy based on JSON configuration file')
+		parser.add_argument('-ce', '--certs', dest='certs', help='specify path to certificate file (optional)')
+		parser.add_argument('-d', '--domain', dest='domain', help='TLS domain (default=*)')
+
 		parser.add_argument('-g', '--generate', dest='generate', action='store_true', help='generate JSON file')
 		args = parser.parse_args()
 		if args.config and args.config != '':
@@ -115,7 +128,15 @@ def main():
 				lhost = configure.read_config().get("listen_host")
 				lport = configure.read_config().get("listen_port")
 				target = configure.read_config().get("url_target")
-				asyncio.run(startProxy(lhost=lhost, lport=lport, target=target))
+				if args.certs is not None:
+					certs = args.certs
+					if args.domain is not None:
+						domain = args.domain
+					else:
+						domain = '*'
+				else:
+					certs = None
+				asyncio.run(startProxy(lhost=lhost, lport=lport, target=target, cert=certs, domain=domain))
 			except Exception as e:
 				print('Error: Unable to load or parse config file', e)
 				exit()

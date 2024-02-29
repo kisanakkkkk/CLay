@@ -122,7 +122,6 @@ def main():
 
 		parser.add_argument('-g', '--generate', dest='generate', action='store_true', help='generate JSON file')
 		args = parser.parse_args()
-		print(args)
 		if args.config and args.config != '':
 			try:
 				configure.set_config(args.config)

@@ -128,14 +128,12 @@ def main():
 				lhost = configure.read_config().get("listen_host")
 				lport = configure.read_config().get("listen_port")
 				target = configure.read_config().get("url_target")
+				domain = '*'
+				certs = None
 				if args.certs is not None:
 					certs = args.certs
 					if args.domain is not None:
 						domain = args.domain
-					else:
-						domain = '*'
-				else:
-					certs = None
 				asyncio.run(startProxy(lhost=lhost, lport=lport, target=target, cert=certs, domain=domain))
 			except Exception as e:
 				print('Error: Unable to load or parse config file', e)

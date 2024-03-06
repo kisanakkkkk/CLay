@@ -1,10 +1,12 @@
 # Usage
 ```
-usage: CLay [-h] [-c CONFIG] [-g]
+usage: CLay [-h] [-c CONFIG] [-ce CERTS] [-d DOMAIN] [-g]
 
 options:
   -h, --help                    show this help message and exit
   -c CONFIG, --config CONFIG    run proxy based on JSON configuration file
+  -ce CERTS, --certs CERTS      specify path to certificate file (optional)
+  -d DOMAIN, --domain DOMAIN    TLS domain (default=*)
   -g, --generate                generate JSON file
 ```
 
@@ -40,6 +42,16 @@ options:
   }
 }
 ```
+- listen_host = Host where you access your CLay-ed website.
+
+- listen_port = Port for accessing your CLay-ed website.
+
+- url_target =  Original website for CLay integration.
+
+- decoy_technology-server = Server technology your website appears to use.
+
+- decoy_technology-framework = Web framework your website appears to use.
+
 ---
 ### Feature - Request Filtering by User-Agent
 | Before                                              | After                                              |
@@ -135,6 +147,11 @@ CLay allows users to add dummy HTML comments in multiple paths to mislead attack
     ]
 }
 ```
+- status = determine whether you want to use this feature or not
+
+- comment = decoy comment(s) you want to put on your website
+
+- url_target_paths = specific page you want to put your decoy comment, specify with regex.
 
 ## What Changes From My Website?
 CLay modifies response headers to check and remove server banners, removing comment tags from response body, and replace entire response body for response with error status code (400, 401, 403, 404). CLay injects decoy cookies and misleadingly sends an "Not-Found" error page for each request with specifically marked dangerous user-agents.

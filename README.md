@@ -85,14 +85,31 @@ Using bind mount (-v) to add configuration file from local system into the conta
 ## Usage
 To get a list of basic options, use:
 
-```CLay -h```
+  ```CLay -h```
 
 To generate a configuration file, use:
 
-```CLay -g```
+  ```CLay -g```
 
 To start the reverse proxy, use:
 
 ```CLay -c "./config.json"```
+
+To run CLay with TLS certificate, use:
+
+  ```CLay -c "./config.json" -ce "./cert.pem" -d exampledomain.com```
+
+Following mitmproxy's configuration, your PEM certificate file should looks like this
+  ```
+  -----BEGIN PRIVATE KEY-----
+  <private key>
+  -----END PRIVATE KEY-----
+  -----BEGIN CERTIFICATE-----
+  <cert>
+  -----END CERTIFICATE-----
+  -----BEGIN CERTIFICATE-----
+  <intermediary cert (optional)>
+  -----END CERTIFICATE-----
+  ```
 
 To customize the configuration of each feature, please visit **[Usage](/Usage.md)**.

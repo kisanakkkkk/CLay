@@ -99,7 +99,7 @@ To run CLay with TLS certificate, use:
 
   ```CLay -c "./config.json" -ce "./cert.pem" -d exampledomain.com```
 
-Following mitmproxy's configuration, your PEM certificate file should looks like this
+Following [mitmproxy's configuration](https://docs.mitmproxy.org/stable/concepts-certificates/), your PEM certificate file should looks like this
   ```
   -----BEGIN PRIVATE KEY-----
   <private key>
